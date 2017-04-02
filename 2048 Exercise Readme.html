@@ -1,0 +1,133 @@
+<html>
+<head>
+  <title>2048</title>
+  <style>
+    table {
+      display: inline;
+    }
+
+    table td {
+      border: 1px solid black;
+      border-radius: 3px;
+      width: 2em;
+      height: 2em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Overview</h1>
+  <p>2048 is a single-player puzzle game in which the objective is to slide numbered tiles on a grid to combine them and create a tile with the number 2048. Your job today is to create an implemention of the game mechanics <strong>using your favorite programming language</strong>. You should not spend more than <strong>2-4 hours</strong> on your solution. You must provide <strong>unit tests</strong> for your API. A graphical user interface is not required.</p>
+  <p>Questions regarding the exercise will not be answered; if you make any assumptions please state them when you submit your test.</p>
+  <h1>Rules of 2048</h1>
+  <ul>
+    <li>The game board is a 4&times;4 grid of tiles, each tile is either occupied with a number, or empty.</li>
+    <li>The game board is initialized with two randomly placed tiles, each of which can be either 2 (90% probability) or 4 (10% probability).</li>
+    <li>You may move in one of four directions: up, left, down, right.</li>
+    <li>You may only move in a given direction if the move would change the state of the board.</li>
+    <li>While moving, the tiles will slide as far as possible in the chosen direction until they are stopped by another tile or the edge of the grid.</li>
+    <li>If two tiles of the same number collide while moving, they will merge into a tile with the total value of the two tiles that collided. The resulting tile cannot merge with another tile again in the same move.</li>
+    <li>After moving, a random empty tile is set to either 2 (90% probability) or 4 (10% probability).</li>
+    <li>If a 2048 tile appears anywhere on the board, the game is won.</li>
+    <li>If all tiles have numbers, and there is no valid move, the game is lost.</li>
+  </ul>
+  
+  <h1>Example</h1>
+  <p>To test out a working 2048 game see: <a href="http://gabrielecirulli.github.io/2048/">http://gabrielecirulli.github.io/2048/</a>
+  
+  <h1>Requirements</h1>
+  <ul>
+    <li>
+      <span>Implement a minimal game board API, capable of the following:</span>
+      <ul>
+        <li>Move in any valid direction</li>
+        <li>Win condition</li>
+        <li>Lose condition</li>
+        <li>Insert a random tile</li>
+      </ul>
+    <li>Unit tests</li>
+  </ul>
+  
+  <h1>Key Considerations</h1>
+  Writing good code is a balancing act between a number of (sometimes conflicting) factors. A few things to consider while writing your solution are:
+  <ul>
+    <li>Readability</li>
+    <li>Maintainability</li>
+    <li>Efficiency</li>
+  </ul>
+  <h1>Bonus</h1>
+  <ul>
+    <li>
+      <span>Make a playable version of the game</span>
+    </li>
+  </ul>
+  <h1>Examples</h1>
+  <h2>Left move</h2>
+  <table>
+    <tr><th colspan=4>Before</th></tr>
+    <tr><td>2</td><td>2</td><td></td><td>4</td></tr>
+    <tr><td>4</td><td>2</td><td>4</td><td>4</td></tr>
+    <tr><td>2</td><td>2</td><td></td><td>2</td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <table>
+    <tr><th colspan=4>After</th></tr>
+    <tr><td>4</td><td>4</td><td></td><td></td></tr>
+    <tr><td>4</td><td>2</td><td>8</td><td></td></tr>
+    <tr><td>4</td><td>2</td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <h2>Right move</h2>
+  <table>
+    <tr><th colspan=4>Before</th></tr>
+    <tr><td>4</td><td>2</td><td></td><td>2</td></tr>
+    <tr><td>4</td><td>2</td><td>4</td><td>4</td></tr>
+    <tr><td>2</td><td>2</td><td></td><td>2</td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <table>
+    <tr><th colspan=4>After</th></tr>
+    <tr><td></td><td></td><td>4</td><td>4</td></tr>
+    <tr><td></td><td>4</td><td>2</td><td>8</td></tr>
+    <tr><td></td><td></td><td>2</td><td>4</td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <h2>Up move</h2>
+  <table>
+    <tr><th colspan=4>Before</th></tr>
+    <tr><td>2</td><td>2</td><td></td><td>2</td></tr>
+    <tr><td>4</td><td>2</td><td>4</td><td>4</td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <table>
+    <tr><th colspan=4>After</th></tr>
+    <tr><td>2</td><td>4</td><td>4</td><td>2</td></tr>
+    <tr><td>4</td><td></td><td></td><td>4</td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <h2>Down move</h2>
+  <table>
+    <tr><th colspan=4>Before</th></tr>
+    <tr><td>2</td><td>2</td><td></td><td>2</td></tr>
+    <tr><td>4</td><td>2</td><td>4</td><td>4</td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+  </table>
+  <table>
+    <tr><th colspan=4>After</th></tr>
+    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><td>2</td><td></td><td></td><td>2</td></tr>
+    <tr><td>4</td><td>4</td><td>4</td><td>4</td></tr>
+  </table>
+  <h2>Winning Board</h2>
+    <table>
+    <tr><td><b>2048</b></td><td></td><td></td><td></td></tr>
+    <tr><td>32</td><td>32</td><td></td><td></td></tr>
+    <tr><td>2</td><td>64</td><td>128</td><td>2</td></tr>
+    <tr><td>4</td><td>8</td><td>2</td><td>4</td></tr>
+  </table>
+</body>
+</html>
